@@ -1,27 +1,28 @@
 #ifndef NODO_H_
 #define _NODO_H_
 
+
 typedef struct{
-	char dni;
-	char nombre;
-	char apellido;
-	char telefono;
+	int dni;
+	char * nombre;
+	char * apellido;
+	int telefono;
 }Cliente;
 
 typedef struct{
-	char dni;
-	char nombre;
-	char apellido;
-	char exp;
-	char telefono;
+	int dni;
+	char * nombre;
+	char * apellido;
+	char * exp;
+	int telefono;
 
 
 }Profesor;
 
 typedef struct{
-	char matricula;
-	char tipo;
-	char color;
+	int matricula;
+	char * tipo;
+	char * color;
 
 }Coche;
 //principal

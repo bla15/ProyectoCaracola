@@ -24,7 +24,7 @@ void registro(Cliente * clientes, int totalClientes){
 	printf("%c", (*clientes).nombre);
 	fflush(stdout);
 
-	printf("Introduce tu Nick:\n");
+	printf("Introduce tu DNI:\n");
 	printf("Introduce tu contraseña:\n");
 
 }
