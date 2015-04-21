@@ -32,6 +32,7 @@ char opcion();//para introdicir la eleccion
 int enunciado2(int totalClientes);//listado de las opciones del registro
 void registro(Cliente * clientes, int totalClientes);//para introducir los datos
 char opcion2Nombre();
+void clear_if_needed(char *str);
 
 
 #endif

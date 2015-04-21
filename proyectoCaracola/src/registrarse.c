@@ -14,15 +14,15 @@ int enunciado2(int totalClientes){
 }
 
 void registro(Cliente * clientes, int totalClientes){
+	char strNom[2];
+
 	printf("Introduce tu nombre:\n");
-
-	char strNom[30];
-	fgets(strNom,30,stdin);
-	sscanf(strNom, "%s", clientes[totalClientes-1].nombre);
-	printf("%s", clientes[totalClientes-1].nombre);
-
-
-
+	fflush(stdout);
+	fgets(strNom,2,stdin);
+	sscanf(strNom, "%c", &((*clientes).nombre));
+	clear_if_needed(strNom);
+	printf("%c", (*clientes).nombre);
+	fflush(stdout);
 
 	printf("Introduce tu Nick:\n");
 	printf("Introduce tu contraseña:\n");
@@ -31,4 +31,13 @@ void registro(Cliente * clientes, int totalClientes){
 
 char opcion2Nombre(){
 
+}
+
+void clear_if_needed(char *str)
+{
+	if (str[strlen(str) - 1] != '\n')
+	{
+		int c;
+    	while ( (c = getchar()) != EOF && c != '\n');
+    }
 }
