@@ -12,9 +12,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_LENGTH	5
+
 int main(void) {
 	char camino=0;
 	int totalAlumnos=0;
+
+	Cliente clientes[10];
+	Profesor profesores[MAX_LENGTH];
 	do{
 		printf("\n");
 		printf("Bienvenido a la autoescuela Caracola!!!");
@@ -26,6 +31,7 @@ int main(void) {
 			registro();
 
 		}
+
 	}while(camino!='3');
 	printf("Agur/Adios");
 

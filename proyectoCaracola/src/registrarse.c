@@ -11,3 +11,7 @@ void registro(){
 	printf("Introduce tu contraseña:\n");
 
 }
+
+char opcion2Nombre(){
+
+}
