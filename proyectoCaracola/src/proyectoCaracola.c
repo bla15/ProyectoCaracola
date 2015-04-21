@@ -34,6 +34,7 @@ int main(void) {
 
 		if(camino=='1'){
 			totalClientes = enunciado2(totalClientes);
+			registro(clientes, totalClientes);
 
 
 
