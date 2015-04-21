@@ -12,14 +12,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_LENGTH	5
+#define MAX_LENGTH_PROF	5
+#define MAX_LENGTH_CL 10
 
 int main(void) {
 	char camino=0;
 	int totalAlumnos=0;
 
-	Cliente clientes[10];
-	Profesor profesores[MAX_LENGTH];
+	Cliente * clientes;
+	Profesor * profesores;
+
+	clientes = (Cliente *) malloc (sizeof(Cliente) * MAX_LENGTH_CL);
+	profesores = (Profesor *) malloc (sizeof(Profesor) * MAX_LENGTH_PROF);
+
 	do{
 		printf("\n");
 		printf("Bienvenido a la autoescuela Caracola!!!");
@@ -28,7 +33,7 @@ int main(void) {
 
 		if(camino=='1'){
 			enunciado2();
-			registro();
+
 
 		}
 
