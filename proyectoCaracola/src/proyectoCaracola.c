@@ -18,7 +18,7 @@
 
 int main(void) {
 	char camino=0;
-	int totalClientes=0;
+	int totalClientes = 0;
 
 	Cliente * clientes;
 	Profesor * profesores;
@@ -33,8 +33,8 @@ int main(void) {
 		camino=opcion();
 
 		if(camino=='1'){
-			enunciado2(int totalClientes);
-			printf("%d",totalClientes);
+			totalClientes = enunciado2(totalClientes);
+
 
 
 		}
