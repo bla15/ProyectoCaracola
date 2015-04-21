@@ -1,15 +1,6 @@
 #ifndef NODO_H_
 #define _NODO_H_
 
-//principal
-void enunciado();//listado de las diferentes opciones iniciales
-char opcion();//para introdicir la eleccion
-
-//registro
-void enunciado2();//listado de las opciones del registro
-void registro();//para introducir los datos
-char opcion2Nombre();
-
 typedef struct{
 	char dni;
 	char nombre;
@@ -33,4 +24,14 @@ typedef struct{
 	char color;
 
 }Coche;
+//principal
+void enunciado();//listado de las diferentes opciones iniciales
+char opcion();//para introdicir la eleccion
+
+//registro
+int enunciado2(int totalClientes);//listado de las opciones del registro
+void registro();//para introducir los datos
+char opcion2Nombre();
+
+
 #endif

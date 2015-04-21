@@ -1,8 +1,17 @@
 #include <stdio.h>
 #include "nodo.h"
 
-void enunciado2(){
+int enunciado2(int totalClientes){
+	int total=totalClientes;
 	printf("Bienvenido nuevo alumno\n");
+	if(total<10){
+		registro();
+		total++;
+		printf("%d",total);
+		return total;
+	}
+
+	return total;
 }
 
 void registro(){
