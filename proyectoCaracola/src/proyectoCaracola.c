@@ -124,6 +124,7 @@ int main(void) {
 				printf("No hay ningun dato registrado\n");
 			}else{
 				int dni = enunciadoAcceder();
+
 				comprobarCP(clientes, profesores, totalClientes, totalProfesores, dni);
 
 			}

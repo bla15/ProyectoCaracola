@@ -17,18 +17,18 @@ void comprobarCP(Cliente * clientes, Profesor *profesores, int totalClientes, in
 	for(i=0; i < totalClientes; i++){
 		if(clientes[i].dni == dni){
 			printf("Bienvenido//Egunon señor/señora %s\n",clientes[i].nombre);
-			entrarCliente(clientes, i);
+			entrarCliente(clientes, profesores,totalClientes,totalProfesores, i);
 		}
 	}
 	for(j=0; j < totalProfesores; j++){
 			if(profesores[j].dni == dni){
 				printf("Bienvenido//Egunon señor/señora %s\n",profesores[j].nombre);
-				entrarProfesores(profesores, j);
+				entrarProfesores(clientes, profesores,totalClientes,totalProfesores, j);
 			}
 		}
 }
 
-void entrarCliente(Cliente * clientes, int i){
+void entrarCliente(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i){
 	char str[20];
 	char temp[20];
 	int comp;
@@ -40,8 +40,8 @@ void entrarCliente(Cliente * clientes, int i){
 
 	comp = strcmp(clientes[i].clave, temp);
 	if(comp==0){
-		printf("Contraseña CORRECTA");
-		opcionesCliente();
+		printf("Contraseña CORRECTA\n\n");
+		opcionesCliente(clientes, profesores, totalClientes, totalProfesores, i);
 	}else{
 		printf("Contraseña incorrecta!!\n");
 
@@ -49,7 +49,7 @@ void entrarCliente(Cliente * clientes, int i){
 
 }
 
-void entrarProfesores(Profesor * profesores, int i){
+void entrarProfesores(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i){
 	char str[20];
 	char temp[20];
 	int comp;
@@ -68,10 +68,23 @@ void entrarProfesores(Profesor * profesores, int i){
 	}
 }
 
-int opcionesCliente(){
-	int num;
-	printf("1. Para pedir cita\n");
+void  opcionesCliente(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i){
+	char opc;
+	do{
+	printf("1: Para pedir cita\n");
 	printf("2: Darse de baja\n");
-	printf("3 Salir\n");
-	return num;
+	printf("3: Salir\n");
+	opc = opcion();
+
+
+	switch(opc){
+	case '1':
+		printf("pasa 1\n");
+		pedirCita();
+		break;
+	case'2': printf("pasa2\n");
+	break;
+	}
+
+	}while(opc!='3');
 }

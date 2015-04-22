@@ -48,9 +48,12 @@ void verVehiculo(Vehiculo * vehiculos, int totalVehiculos);
 //acceder
 int enunciadoAcceder();
 void comprobarCP(Cliente * clientes, Profesor *profesores, int totalClientes, int totalProfesores, int dni);
-void entrarCliente(Cliente * clientes, int i);
-void entrarProfesores(Profesor * profesores, int i);
-int opcionesCliente();
-int opcionesProfesor();
+void entrarCliente(Cliente * clientes, Profesor *profesores, int totalClientes, int totalProfesores, int i);
+void entrarProfesores(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i);
+void opcionesCliente(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i);
+void opcionesProfesor(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i);
+
+//eleccCliente
+void pedirCita();
 
 #endif
