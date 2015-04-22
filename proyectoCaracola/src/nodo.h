@@ -40,7 +40,7 @@ void registroProfesores(Profesor * profesores, int totalProfesores);
 char opcion2Nombre();
 void clear_if_needed(char *str);
 
-//registro
+//listar
 void verCliente(Cliente * clientes, int totalClientes);
 void verProfesor(Profesor * profesores, int totalProfesores);
 void verVehiculo(Vehiculo * vehiculos, int totalVehiculos);

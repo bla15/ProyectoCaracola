@@ -75,29 +75,36 @@ int main(void) {
 		}
 
 		else if(camino=='2'){
+			char opc;
 			// Aqui, si no se ha registrado ni cliente ni profesor, no podra acceder. tendremos que hacer un if con los dos totales
 			// Que quieres listar?
-			printf("Que quieres listar?\n1: Cliente\n2: Profesor\n3: Vehiculo\n");
-			char opc = opcion();
-			switch(opc){
-			case '1':
-				if(totalClientes == 0){
-					printf("No se ha registrado ningun cliente todavía");
+			do{
+
+
+				printf("Que quieres listar?\n1: Cliente\n2: Profesor\n3: Vehiculo\n4: Salir\n");
+				opc= opcion();
+				switch(opc){
+				case '1':
+					if(totalClientes == 0){
+						printf("No se ha registrado ningun cliente todavía\n");
+						printf("\n");
+					}
+					else{
+						verCliente(clientes, totalClientes);
+					}
+					break;
+				case '2':
+					if(totalProfesores==0){
+						printf("No se ha registrado ningun profesor todavía\n");
+						printf("\n");
+					}
+					else{
+						verProfesor(profesores, totalProfesores);
+					}break;
+				case '3':
+					verVehiculo(vehiculos, MAX_LENGTH_ACH);break;
 				}
-				else{
-					verCliente(clientes, totalClientes);
-				}
-			break;
-			case '2':
-				if(totalProfesores==0){
-					printf("No se ha registrado ningun profesor todavía");
-				}
-				else{
-					verProfesor(profesores, totalProfesores);
-				}break;
-			case '3':
-				verVehiculo(vehiculos, MAX_LENGTH_ACH);break;
-			}
+			}while(opc!='4');
 		}
 		else if(camino == '3'){
 			// Acceder

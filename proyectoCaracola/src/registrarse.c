@@ -28,7 +28,7 @@ void registroClientes(Cliente * clientes, int totalClientes){
 	// printf("%s", clientes[totalClientes-1].nombre);
 
 
-	printf("Introduce tu DNI:\n");
+	printf("Introduce tu DNI (solo numeros):\n");
 	fgets(strNom,9,stdin);
 	sscanf(strNom,"%d", &dni);
 	clear_if_needed(strNom);
@@ -43,7 +43,7 @@ void registroClientes(Cliente * clientes, int totalClientes){
 	strcpy(clientes[totalClientes-1].clave, tempStr);
 	// printf("%s", clientes[totalClientes-1].clave);
 
-	printf("Introduce tu telefono:\n");
+	printf("Introduce tu telefono (solo numeros):\n");
 	fgets(strNom, 10, stdin);
 	sscanf(strNom, "%d", &dni);
 	clear_if_needed(strNom);

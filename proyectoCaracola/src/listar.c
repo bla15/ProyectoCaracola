@@ -8,6 +8,7 @@ void verCliente(Cliente * clientes, int totalClientes){
 		printf("Se llama: %s\n",clientes[i].nombre);
 		printf("DNI: %d \n", clientes[i].dni);
 		printf("Contraseña: %s \n", clientes[i].clave);
+		printf("\n");
 	}
 }
 void verProfesor(Profesor * profesores, int totalProfesores){
@@ -17,6 +18,7 @@ void verProfesor(Profesor * profesores, int totalProfesores){
 				printf("Se llama: %s\n",profesores[i].nombre);
 				printf("DNI: %d \n", profesores[i].dni);
 				printf("Contraseña: %s \n", profesores[i].clave);
+				printf("\n");
 	}
 }
 void verVehiculo(Vehiculo * vehiculos, int totalVehiculos){
