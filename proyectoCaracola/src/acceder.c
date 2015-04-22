@@ -29,14 +29,14 @@ void comprobarCP(Cliente * clientes, Profesor *profesores, int totalClientes, in
 void entrarCliente(Cliente * clientes, int i){
 	char str[20];
 	char temp[20];
-	int comp=0;
+	int comp;
 
 	printf("Inserte su contraseña:");
 	fgets(str, 20, stdin);
-	sscanf(str, "%d", temp);
+	sscanf(str, "%s", temp);
 	clear_if_needed(str);
 
-	comp= strcmp(clientes[i].clave, temp);
+	comp = strcmp(clientes[i].clave, temp);
 	if(comp==0){
 		printf("MAQUINAAAAAAAAAAAAAA EHHHHHHHHHHHHHHHHH!\n");
 	}else{
