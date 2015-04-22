@@ -45,5 +45,10 @@ void verCliente(Cliente * clientes, int totalClientes);
 void verProfesor(Profesor * profesores, int totalProfesores);
 void verVehiculo(Vehiculo * vehiculos, int totalVehiculos);
 
+//acceder
+int enunciadoAcceder();
+void comprobarCP(Cliente * clientes, Profesor *profesores, int totalClientes, int totalProfesores, int dni);
+void entrarCliente(Cliente * clientes, int i);
+void entrarProfesores(Profesor * profesores, int i);
 
 #endif

@@ -108,6 +108,14 @@ int main(void) {
 		}
 		else if(camino == '3'){
 			// Acceder
+			if(totalClientes+totalProfesores==0){
+				printf("No hay ningun dato registrado\n");
+			}else{
+				int dni = enunciadoAcceder();
+				comprobarCP(clientes, profesores, totalClientes, totalProfesores, dni);
+
+			}
+
 		}
 		else if(camino == '4'){
 			// Borrar
