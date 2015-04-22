@@ -50,5 +50,7 @@ int enunciadoAcceder();
 void comprobarCP(Cliente * clientes, Profesor *profesores, int totalClientes, int totalProfesores, int dni);
 void entrarCliente(Cliente * clientes, int i);
 void entrarProfesores(Profesor * profesores, int i);
+int opcionesCliente();
+int opcionesProfesor();
 
 #endif
