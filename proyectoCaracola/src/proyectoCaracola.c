@@ -22,8 +22,8 @@ int main(void) {
 	setvbuf(stdout, 0, _IONBF, 0);
 
 	char camino=0;
-	int totalClientes = 0;
-	int totalProfesores = 0;
+	int totalClientes = 1;
+	int totalProfesores = 1;
 
 	Cliente * clientes;
 	Profesor * profesores;
@@ -34,6 +34,18 @@ int main(void) {
 	vehiculos = (Vehiculo *) malloc (sizeof(Vehiculo) * MAX_LENGTH_ACH);
 
 	inicializarCoche(vehiculos);
+	clientes[0].dni = 1;
+	clientes[0].nombre = "Borja";
+	clientes[0].apellido = "Lopez";
+	clientes[0].clave = "Alonso";
+	clientes[0].telefono = 1;
+
+	profesores[0].dni = 2;
+	profesores[0].nombre = "Mireia";
+	profesores[0].apellido = "Igartua";
+	profesores[0].clave = "Imaz";
+	profesores[0].telefono = 1;
+	profesores[0].exp = 5;
 
 	// Lo que podemos hacer: Listar (clientes, profesores, coches) ; Borrar ;
 
