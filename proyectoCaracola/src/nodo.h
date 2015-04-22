@@ -41,7 +41,9 @@ char opcion2Nombre();
 void clear_if_needed(char *str);
 
 //registro
-void verPantalla(Cliente * clientes, int totalClientes);
+void verCliente(Cliente * clientes, int totalClientes);
+void verProfesor(Profesor * profesores, int totalProfesores);
+void verVehiculo(Vehiculo * vehiculos, int totalVehiculos);
 
 
 #endif

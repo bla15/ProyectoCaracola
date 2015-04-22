@@ -3,7 +3,7 @@
 #define MAX_LENGTH_CL 20
 
 
-void enunciadoCliente(){
+void enunciadoCliente(){ //Esta función utilizamos después de que se registre un cliente, para darle la bienvenida
 
 	printf("Bienvenido, nuevo cliente\n");
 

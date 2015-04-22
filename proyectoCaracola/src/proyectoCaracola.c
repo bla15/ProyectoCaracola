@@ -35,6 +35,7 @@ int main(void) {
 
 	inicializarCoche(vehiculos);
 
+	// Lo que podemos hacer: Listar (clientes, profesores, coches) ; Borrar ;
 
 	do{
 		printf("\n");
@@ -45,7 +46,7 @@ int main(void) {
 		if(camino=='1'){
 
 			printf("1: Registrar como Cliente\n2: Registrar como Profesor\n");
-			int opc = opcion();
+			char opc = opcion();
 
 			if(opc == '1'){
 
@@ -73,11 +74,39 @@ int main(void) {
 
 		}
 
-		if(camino=='2'){
+		else if(camino=='2'){
 			// Aqui, si no se ha registrado ni cliente ni profesor, no podra acceder. tendremos que hacer un if con los dos totales
-			verPantalla(clientes, totalClientes);
+			// Que quieres listar?
+			printf("Que quieres listar?\n1: Cliente\n2: Profesor\n3: Vehiculo\n");
+			char opc = opcion();
+			switch(opc){
+			case '1':
+				if(totalClientes == 0){
+					printf("No se ha registrado ningun cliente todavía");
+				}
+				else{
+					verCliente(clientes, totalClientes);
+				}
+			break;
+			case '2':
+				if(totalProfesores==0){
+					printf("No se ha registrado ningun profesor todavía");
+				}
+				else{
+					verProfesor(profesores, totalProfesores);
+				}break;
+			case '3':
+				verVehiculo(vehiculos, MAX_LENGTH_ACH);break;
+			}
 		}
-	}while(camino!='3');
+		else if(camino == '3'){
+			// Acceder
+		}
+		else if(camino == '4'){
+			// Borrar
+		}
+
+	}while(camino!='5');
 	printf("Agur/Adios");
 
 
@@ -133,14 +162,6 @@ void inicializarCoche(Vehiculo * vehiculos){
 	vehiculos[9].matricula = 8989;
 	vehiculos[9].tipo = "coche";
 	vehiculos[9].color = "azul marino";
-
-
-	//for(int i = 0; i < MAX_LENGTH_ACH; i++){
-	//	printf("Matricula: %d\ntipo: %s\n color: %s\n\n", vehiculos[i].matricula, vehiculos[i].tipo, vehiculos[i].color);
-	//}
-
-	//Esto da error. Por que?
-
 
 
 }
