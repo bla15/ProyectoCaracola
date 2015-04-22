@@ -13,8 +13,8 @@
 #include <string.h>
 #include "nodo.h"
 
-#define MAX_LENGTH_PROF	5
-#define MAX_LENGTH_CL 10
+#define MAX_LENGTH_APROF	5
+#define MAX_LENGTH_ACL 10
 
 int main(void) {
 
@@ -26,8 +26,8 @@ int main(void) {
 	Cliente * clientes;
 	Profesor * profesores;
 
-	clientes = (Cliente *) malloc (sizeof(Cliente) * MAX_LENGTH_CL);
-	profesores = (Profesor *) malloc (sizeof(Profesor) * MAX_LENGTH_PROF);
+	clientes = (Cliente *) malloc (sizeof(Cliente) * MAX_LENGTH_ACL);
+	profesores = (Profesor *) malloc (sizeof(Profesor) * MAX_LENGTH_APROF);
 
 	do{
 		printf("\n");

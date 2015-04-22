@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "nodo.h"
+#define MAX_LENGTH_CL 20
+
 
 int enunciado2(int totalClientes){
 	int total=totalClientes;
@@ -14,8 +16,8 @@ int enunciado2(int totalClientes){
 }
 
 void registro(Cliente * clientes, int totalClientes){
-	char strNom[20];
-	char tempStr[20];
+	char strNom[MAX_LENGTH_CL];
+	char tempStr[MAX_LENGTH_CL];
 
 	printf("Introduce tu nombre:\n");
 	fgets(strNom,20,stdin);
