@@ -17,6 +17,9 @@
 #define MAX_LENGTH_CL 10
 
 int main(void) {
+
+	setvbuf(stdout, 0, _IONBF, 0);
+
 	char camino=0;
 	int totalClientes = 0;
 

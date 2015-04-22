@@ -14,15 +14,17 @@ int enunciado2(int totalClientes){
 }
 
 void registro(Cliente * clientes, int totalClientes){
-	char strNom[2];
+	char strNom[20];
+	char tempStr[20];
 
 	printf("Introduce tu nombre:\n");
-	fflush(stdout);
-	fgets(strNom,2,stdin);
-	sscanf(strNom, "%c", &((*clientes).nombre));
+	fgets(strNom,20,stdin);
+	sscanf(strNom, "%s", tempStr);
 	clear_if_needed(strNom);
-	printf("%c", (*clientes).nombre);
-	fflush(stdout);
+	clientes[totalClientes-1].nombre = (char *) malloc (sizeof(char) * strlen(tempStr + 1));
+	strcpy(clientes[totalClientes-1].nombre, tempStr);
+	printf("%s", clientes[totalClientes-1].nombre);
+
 
 	printf("Introduce tu DNI:\n");
 	printf("Introduce tu contraseña:\n");
