@@ -22,6 +22,7 @@ int main(void) {
 	setvbuf(stdout, 0, _IONBF, 0);
 
 	char camino=0;
+	// Cambiar esto cuando quitemos el primer cliente y profesor. Los dos a 0
 	int totalClientes = 1;
 	int totalProfesores = 1;
 
@@ -34,11 +35,13 @@ int main(void) {
 	vehiculos = (Vehiculo *) malloc (sizeof(Vehiculo) * MAX_LENGTH_ACH);
 
 	inicializarCoche(vehiculos);
+	// Inicializacion para hacer pruebas mas rapidamente
 	clientes[0].dni = 1;
 	clientes[0].nombre = "Borja";
 	clientes[0].apellido = "Lopez";
 	clientes[0].clave = "Alonso";
 	clientes[0].telefono = 1;
+	// Esto no lo podemos hacer
 
 	profesores[0].dni = 2;
 	profesores[0].nombre = "Mireia";
@@ -145,7 +148,8 @@ void inicializarCoche(Vehiculo * vehiculos){
 	vehiculos[0].matricula = 1822;
 	vehiculos[0].tipo = "camion";
 	vehiculos[0].color = "rojo";
-
+	// Esto en si no se puede hacer, ya que el literal desaparece al cabo del tiempo
+	// Meter valores por strcpy. Hacer una funcion (crear o asi) y meter el tipo y color literales
 
 	vehiculos[1].matricula = 2435;
 	vehiculos[1].tipo = "coche";
@@ -190,6 +194,9 @@ void inicializarCoche(Vehiculo * vehiculos){
 	vehiculos[9].matricula = 8989;
 	vehiculos[9].tipo = "coche";
 	vehiculos[9].color = "azul marino";
+
+	// PARA BORRAR ARRAYS: CREAR OTRO ARRAY DE UNA POSICION MENOS Y DESTRUIR EL ANTERIOR. MARCAR COMO NO EN USO (DNI = 0);
+	// FUNCION REALLOC: COPIA LA MEMORIA DE UN ARRAY A OTRO SITIO. CPLUSPLUS.COM
 
 
 }
