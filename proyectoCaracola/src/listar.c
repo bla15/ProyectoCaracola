@@ -30,3 +30,11 @@ void verVehiculo(Vehiculo * vehiculos, int totalVehiculos){
 
 		//Esto da error. Por que? NO SE PUEDE PONER INT I = 0 DENTRO DE UN FOR
 }
+
+void verCitas(Cita * citas, int totalCitas){
+	int i;
+
+	for(i = 0; i < totalCitas; i++){
+		printf("Cita %d:\nDNI Cliente: %d\nDNI Profesor: %d\nMatricula: %d\n", totalCitas, citas[i].dniCl, citas[i].dniProf, citas[i].matricula);
+	}
+}

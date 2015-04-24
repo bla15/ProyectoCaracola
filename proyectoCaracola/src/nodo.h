@@ -63,6 +63,7 @@ void clear_if_needed(char *str);
 void verCliente(Cliente * clientes, int totalClientes);
 void verProfesor(Profesor * profesores, int totalProfesores);
 void verVehiculo(Vehiculo * vehiculos, int totalVehiculos);
+void verCitas(Cita * citas, int totalCitas);
 
 //acceder
 int enunciadoAcceder();
@@ -74,5 +75,10 @@ void opcionesProfesor(int totalClientes, int totalProfesores, int * totalCitas, 
 
 //eleccCliente
 void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i);
+int compDniProf(int dni, int totalProfesores);
+int compMatr(int matricula, int totalVehiculos);
+int compDniCita(int dni, int totalCitas);
+int compMatrCita(int matricula, int totalCitas);
+
 
 #endif

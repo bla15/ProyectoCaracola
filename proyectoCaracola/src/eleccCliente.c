@@ -5,11 +5,11 @@ void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int *
 	verProfesor(profesores, totalProfesores);
 	verVehiculo(vehiculos, totalVehiculos);
 
+
 	char str[20];
 	int dni;
 	int matricula;
-	int j;
-	int k;
+
 
 	printf("Introduce el DNI del profesor para la cita: ");
 	fgets(str, 9, stdin);
@@ -21,68 +21,111 @@ void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int *
 	sscanf(str, "%d", &matricula);
 	clear_if_needed(str);
 
-	// HACER QUE EL LO DE ABAJO COMPRUEBE TANTO LA MATRICULA COMO EL PROFESOR. EN ESTOS MOMENTOS SOLO COMPRUEBA EL DNI DEL PROFESOR
+	if(compDniProf(dni, totalProfesores) && compMatr(matricula, totalVehiculos)){ // Los datos introducidos son correctos
+		if(*totalCitas == 0){ // Primera vez que se pide una cita
+
+			citas[0].dniProf = dni;
+			citas[0].dniCl = clientes[i].dni;
+			citas[0].matricula = matricula;
+			(*totalCitas)++;
 
 
-
-	for(j = 0; j < totalProfesores; j++){
-
-
-		if(profesores[j].dni == dni){ // Esta en profesores
-			//printf("pasa\n\n");
-			//printf("%d\n\n", *totalCitas);
-
-			if(*totalCitas == 0){
-
-				// Ver si esta libre matricula
-				for(k = 0; k < totalVehiculos; k++){
-					if(vehiculos[k].matricula == matricula){ // Esta en vehiculos
-						citas[0].dniProf = dni;
-						citas[0].dniCl = clientes[i].dni;
-						citas[0].matricula = matricula;
-						(*totalCitas)++;
-					}
-
-					// IMPRIMIR SI LA MATRICULA NO ESTA DISPONIBLE.
-
-
-				}
-
-
-
-
-				// printf("dniProfesor: %d ; dniCliente: %d ; matricula: %d", citas[0].dniProf, citas[0].dniCl, citas[0].matricula);
-
-
+		}
+		else{
+			if(compDniCita(dni, *totalCitas) && compMatrCita(matricula, *totalCitas)){ // Los datos introducidos estan libres
+				citas[*totalCitas].dniProf = dni;
+				citas[*totalCitas].dniCl = clientes[i].dni;
+				citas[*totalCitas].matricula = matricula;
+				(*totalCitas)++;
 			}
 			else{
-				for(k = 0; k < *totalCitas; k++){
-					// printf("Posicion k: DNIProf: %d ; DNICl: %d ; matricula: %d", citas[k].dniProf, citas[k].dniCl, citas[k].matricula);
-					if(profesores[j].dni != citas[k].dniProf){
-						citas[*totalCitas].dniProf = profesores[j].dni;
-						citas[*totalCitas].matricula = 1822;
-
-					}
-					else{
-						printf("El profesor seleccionado ya esta ocupado.\n");
-					}
-				}
+				printf("El profesor y/o vehiculo seleccionado ya esta ocupado.\n\n");
 			}
 
+		}
+	}
+	else{
+		printf("DNI y/o matricula insertados incorrectos.\n\n");
 	}
 
+
+
+}
+
+
+int compDniProf(int dni, int totalProfesores){
+
+	int i;
+	int bool = 0; // false
+
+	for(i = 0; i < totalProfesores; i++){
+		if(profesores[i].dni == dni){
+			bool++; // true
+		}
+
 	}
 
+	if(bool == 0){
+		return bool;
+	}
+	else{
+		return 1;
+	}
+}
 
+int compMatr(int matricula, int totalVehiculos){
+	int i;
+	int bool = 0;
 
+	for(i = 0; i < totalVehiculos; i++){
+		if(vehiculos[i].matricula == matricula){
+			bool++;
+		}
+	}
 
+	if(bool == 0){
+		return bool;
+	}
+	else{
+		return 1;
+	}
+}
 
+int compDniCita(int dni, int totalCitas){
 
+	int i;
+	int bool = 0;
 
+	for(i = 0; i < totalCitas; i++){
+		if(citas[i].dniCl == dni){
+			bool++;
+		}
+	}
 
+	if(bool == 0){
+		return 1; // Puede sonar contradictorio, pero no lo es: Si todos los dnis son distintos, devuelve 1, porque señal de que ese profesor esta libre
+	}
+	else{
+		return 0;
+	}
 
-	// Aqui pedir y luego ver que tanto el DNI y la matricula existen y QUE AMBOS ESTAN LIBRES (RECORRER EL ARRAY DE CITAS)
+}
 
+int compMatrCita(int matricula, int totalCitas){
 
+	int i;
+	int bool = 0;
 
+	for(i = 0; i < totalCitas; i++){
+		if(citas[i].matricula == matricula){
+			bool++;
+		}
+	}
+
+	if(bool == 0){
+		return 1;
+	}
+	else{
+		return 0;
+	}
 }
