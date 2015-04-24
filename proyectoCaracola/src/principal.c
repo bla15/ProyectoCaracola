@@ -6,8 +6,8 @@ void enunciado(){
 	printf("1: Registrarse\n");
 	printf("2: Listar\n");
 	printf("3: Acceder\n");
-	printf("4: Borrar\n");
-	printf("5: Salir\n");
+	printf("4: Salir\n");
+
 }
 
 char opcion(){

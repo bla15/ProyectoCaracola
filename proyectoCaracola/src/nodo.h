@@ -2,6 +2,8 @@
 #define _NODO_H_
 
 
+
+
 typedef struct{
 	int dni;
 	char * clave;
@@ -27,10 +29,27 @@ typedef struct{
 	char * color;
 
 }Vehiculo;
+
+typedef struct{
+	int matricula;
+	int dniCl;
+	int dniProf;
+
+}Cita;
+
+Cliente * clientes;
+Profesor * profesores;
+Vehiculo * vehiculos;
+Cita * citas;
+
+
 //principal
 void enunciado();//listado de las diferentes opciones iniciales
 char opcion();//para introdicir la eleccion
+
+// proyectoCaracola
 void inicializarCoche(Vehiculo * coches);
+void crearVehiculo(Vehiculo * vehiculos, int index, char tipo [], char color []);
 
 //registro
 void enunciadoCliente();//listado de las opciones del registro
@@ -47,13 +66,13 @@ void verVehiculo(Vehiculo * vehiculos, int totalVehiculos);
 
 //acceder
 int enunciadoAcceder();
-void comprobarCP(Cliente * clientes, Profesor *profesores, int totalClientes, int totalProfesores, int dni);
-void entrarCliente(Cliente * clientes, Profesor *profesores, int totalClientes, int totalProfesores, int i);
-void entrarProfesores(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i);
-void opcionesCliente(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i);
-void opcionesProfesor(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i);
+void comprobarCP(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int dni);
+void entrarCliente(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i);
+void entrarProfesores(int totalClientes, int totalProfesores, int * totalCitas, int i);
+void opcionesCliente(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i);
+void opcionesProfesor(int totalClientes, int totalProfesores, int * totalCitas, int i);
 
 //eleccCliente
-void pedirCita();
+void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i);
 
 #endif

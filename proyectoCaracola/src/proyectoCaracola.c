@@ -13,9 +13,12 @@
 #include <string.h>
 #include "nodo.h"
 
+
 #define MAX_LENGTH_APROF 5
 #define MAX_LENGTH_ACL 10
 #define MAX_LENGTH_ACH 10
+#define MAX_LENGTH_ACIT 5
+
 
 int main(void) {
 
@@ -25,14 +28,14 @@ int main(void) {
 	// Cambiar esto cuando quitemos el primer cliente y profesor. Los dos a 0
 	int totalClientes = 1;
 	int totalProfesores = 1;
+	int totalCitas = 0;
 
-	Cliente * clientes;
-	Profesor * profesores;
-	Vehiculo * vehiculos;
 
 	clientes = (Cliente *) malloc (sizeof(Cliente) * MAX_LENGTH_ACL);
 	profesores = (Profesor *) malloc (sizeof(Profesor) * MAX_LENGTH_APROF);
 	vehiculos = (Vehiculo *) malloc (sizeof(Vehiculo) * MAX_LENGTH_ACH);
+	citas = (Cita *) malloc (sizeof(Cita) * MAX_LENGTH_ACIT);
+
 
 	inicializarCoche(vehiculos);
 	// Inicializacion para hacer pruebas mas rapidamente
@@ -91,8 +94,7 @@ int main(void) {
 
 		else if(camino=='2'){
 			char opc;
-			// Aqui, si no se ha registrado ni cliente ni profesor, no podra acceder. tendremos que hacer un if con los dos totales
-			// Que quieres listar?
+
 			do{
 
 
@@ -127,17 +129,15 @@ int main(void) {
 				printf("No hay ningun dato registrado\n");
 			}else{
 				int dni = enunciadoAcceder();
-
-				comprobarCP(clientes, profesores, totalClientes, totalProfesores, dni);
+				// Caso del cliente
+				comprobarCP(totalClientes, totalProfesores, MAX_LENGTH_ACH, &totalCitas, dni);
+				// Cambiarlo, ponerlo todo en el main
 
 			}
 
 		}
-		else if(camino == '4'){
-			// Borrar
-		}
 
-	}while(camino!='5');
+	}while(camino!='4');
 	printf("Agur/Adios");
 
 
@@ -146,57 +146,71 @@ int main(void) {
 void inicializarCoche(Vehiculo * vehiculos){
 
 	vehiculos[0].matricula = 1822;
-	vehiculos[0].tipo = "camion";
-	vehiculos[0].color = "rojo";
-	// Esto en si no se puede hacer, ya que el literal desaparece al cabo del tiempo
+	crearVehiculo(vehiculos, 0, "camion", "rojo");
+
+
+	// Esto en si no se puede hacer, ya que el literal desaparece al cabo del tiempo. Ademas no esta hecho el malloc
 	// Meter valores por strcpy. Hacer una funcion (crear o asi) y meter el tipo y color literales
 
 	vehiculos[1].matricula = 2435;
-	vehiculos[1].tipo = "coche";
-	vehiculos[1].color = "verde";
+	crearVehiculo(vehiculos, 1, "coche", "verde");
 
 
 	vehiculos[2].matricula = 9175;
-	vehiculos[2].tipo = "coche";
-	vehiculos[2].color = "azul";
+	crearVehiculo(vehiculos, 2, "coche", "azul");
 
 
 	vehiculos[3].matricula = 6837;
-	vehiculos[3].tipo = "moto";
-	vehiculos[3].color = "rosa";
+	crearVehiculo(vehiculos, 3, "moto", "rosa");
 
 
 	vehiculos[4].matricula = 7142;
-	vehiculos[4].tipo = "camion";
-	vehiculos[4].color = "negro";
+	crearVehiculo(vehiculos, 4, "camion", "negro");
 
 
 	vehiculos[5].matricula = 3485;
-	vehiculos[5].tipo = "barco";
-	vehiculos[5].color = "blanco";
+	crearVehiculo(vehiculos, 5, "barco", "blanco");
 
 
 	vehiculos[6].matricula = 0371;
-	vehiculos[6].tipo = "helicóptero";
-	vehiculos[6].color = "gris";
+	crearVehiculo(vehiculos, 6, "helicoptero", "gris");
 
 
 	vehiculos[7].matricula = 5377;
-	vehiculos[7].tipo = "moto";
-	vehiculos[7].color = "amarillo";
+	crearVehiculo(vehiculos, 7, "moto", "amarillo");
 
 
 	vehiculos[8].matricula = 0067;
-	vehiculos[8].tipo = "avión";
-	vehiculos[8].color = "gris";
+	crearVehiculo(vehiculos, 8, "avion", "gris");
 
 
 	vehiculos[9].matricula = 8989;
-	vehiculos[9].tipo = "coche";
-	vehiculos[9].color = "azul marino";
+	crearVehiculo(vehiculos, 9, "coche", "azul marino");
+
 
 	// PARA BORRAR ARRAYS: CREAR OTRO ARRAY DE UNA POSICION MENOS Y DESTRUIR EL ANTERIOR. MARCAR COMO NO EN USO (DNI = 0);
 	// FUNCION REALLOC: COPIA LA MEMORIA DE UN ARRAY A OTRO SITIO. CPLUSPLUS.COM
 
 
+}
+
+void crearVehiculo(Vehiculo * vehiculos, int index, char tipo[], char color[]){
+	char aTipo[20];
+	char aColor[20];
+	int i;
+	int j;
+
+	for(i = 0; i < strlen(tipo) + 1; i++){
+		aTipo[i] = tipo[i];
+	}
+
+	for(j = 0; j < strlen(color) + 1; j++){
+		aColor[j] = color[j];
+	}
+
+	vehiculos[index].tipo = (char *) malloc (sizeof(char) * (strlen(aTipo) + 1));
+	vehiculos[index].color = (char *) malloc (sizeof(char) * (strlen(aColor) + 1));
+
+	strcpy(vehiculos[index].tipo, aTipo);
+	strcpy(vehiculos[index].color, aColor);
 }

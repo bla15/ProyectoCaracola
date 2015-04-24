@@ -11,24 +11,24 @@ int enunciadoAcceder(){
 
 	return dni;
 }
-void comprobarCP(Cliente * clientes, Profesor *profesores, int totalClientes, int totalProfesores, int dni){
+void comprobarCP(int totalClientes, int totalProfesores, int totalVehiculo, int * totalCitas, int dni){
 	int i=0;
 	int j=0;
 	for(i=0; i < totalClientes; i++){
 		if(clientes[i].dni == dni){
 			printf("Bienvenido//Egunon señor/señora %s\n",clientes[i].nombre);
-			entrarCliente(clientes, profesores,totalClientes,totalProfesores, i);
+			entrarCliente(totalClientes,totalProfesores, totalVehiculo, totalCitas, i);
 		}
 	}
 	for(j=0; j < totalProfesores; j++){
 			if(profesores[j].dni == dni){
 				printf("Bienvenido//Egunon señor/señora %s\n",profesores[j].nombre);
-				entrarProfesores(clientes, profesores,totalClientes,totalProfesores, j);
+				entrarProfesores(totalClientes,totalProfesores, totalCitas, j);
 			}
 		}
 }
 
-void entrarCliente(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i){
+void entrarCliente(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){
 	char str[20];
 	char temp[20];
 	int comp;
@@ -41,7 +41,7 @@ void entrarCliente(Cliente * clientes, Profesor * profesores, int totalClientes,
 	comp = strcmp(clientes[i].clave, temp);
 	if(comp==0){
 		printf("Contraseña CORRECTA\n\n");
-		opcionesCliente(clientes, profesores, totalClientes, totalProfesores, i);
+		opcionesCliente(totalClientes, totalProfesores, totalVehiculos, totalCitas, i);
 	}else{
 		printf("Contraseña incorrecta!!\n");
 
@@ -49,7 +49,7 @@ void entrarCliente(Cliente * clientes, Profesor * profesores, int totalClientes,
 
 }
 
-void entrarProfesores(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i){
+void entrarProfesores(int totalClientes, int totalProfesores, int * totalCitas, int i){
 	char str[20];
 	char temp[20];
 	int comp;
@@ -68,7 +68,7 @@ void entrarProfesores(Cliente * clientes, Profesor * profesores, int totalClient
 	}
 }
 
-void  opcionesCliente(Cliente * clientes, Profesor * profesores, int totalClientes, int totalProfesores, int i){
+void  opcionesCliente(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){
 	char opc;
 	do{
 	printf("1: Para pedir cita\n");
@@ -79,10 +79,10 @@ void  opcionesCliente(Cliente * clientes, Profesor * profesores, int totalClient
 
 	switch(opc){
 	case '1':
-		printf("pasa 1\n");
-		pedirCita();
+		// printf("pasa 1\n");
+		pedirCita(totalClientes, totalProfesores, totalVehiculos, totalCitas, i);
 		break;
-	case'2': printf("pasa2\n");
+	case'2': // printf("pasa2\n");
 	break;
 	}
 
