@@ -42,8 +42,10 @@ int main(void) {
 	clientes[0].dni = 1;
 	clientes[0].nombre = "Borja";
 	clientes[0].apellido = "Lopez";
-	clientes[0].clave = "Alonso";
+	clientes[0].clave = "1";
 	clientes[0].telefono = 1;
+
+
 	// Esto no lo podemos hacer
 
 	profesores[0].dni = 2;
@@ -59,6 +61,7 @@ int main(void) {
 		printf("\n");
 		printf("Bienvenido a la autoescuela Caracola!!!");
 		enunciado();
+
 		camino=opcion();
 
 		if(camino=='1'){
@@ -107,6 +110,7 @@ int main(void) {
 						printf("\n");
 					}
 					else{
+						printf("TOTAL CLIENTES: %d\n",totalClientes);
 						verCliente(clientes, totalClientes);
 					}
 					break;
@@ -130,7 +134,7 @@ int main(void) {
 			}else{
 				int dni = enunciadoAcceder();
 				// Caso del cliente
-				comprobarCP(totalClientes, totalProfesores, MAX_LENGTH_ACH, &totalCitas, dni);
+				comprobarCP(&totalClientes, totalProfesores, MAX_LENGTH_ACH, &totalCitas, dni);
 				// Cambiarlo, ponerlo todo en el main
 
 			}

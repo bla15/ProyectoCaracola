@@ -8,6 +8,7 @@ void enunciado(){
 	printf("3: Acceder\n");
 	printf("4: Salir\n");
 
+
 }
 
 char opcion(){

@@ -11,10 +11,10 @@ int enunciadoAcceder(){
 
 	return dni;
 }
-void comprobarCP(int totalClientes, int totalProfesores, int totalVehiculo, int * totalCitas, int dni){
+void comprobarCP(int * totalClientes, int totalProfesores, int totalVehiculo, int * totalCitas, int dni){
 	int i=0;
 	int j=0;
-	for(i=0; i < totalClientes; i++){
+	for(i=0; i < *totalClientes; i++){
 		if(clientes[i].dni == dni){
 			printf("Bienvenido//Egunon señor/señora %s\n",clientes[i].nombre);
 			entrarCliente(totalClientes,totalProfesores, totalVehiculo, totalCitas, i);
@@ -28,7 +28,7 @@ void comprobarCP(int totalClientes, int totalProfesores, int totalVehiculo, int 
 		}
 }
 
-void entrarCliente(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){
+void entrarCliente(int* totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){
 	char str[20];
 	char temp[20];
 	int comp;
@@ -68,7 +68,7 @@ void entrarProfesores(int totalClientes, int totalProfesores, int * totalCitas, 
 	}
 }
 
-void  opcionesCliente(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){
+void  opcionesCliente(int * totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){
 	char opc;
 	do{
 	printf("1: Para pedir cita\n");
@@ -80,11 +80,17 @@ void  opcionesCliente(int totalClientes, int totalProfesores, int totalVehiculos
 	switch(opc){
 	case '1':
 		// printf("pasa 1\n");
-		pedirCita(totalClientes, totalProfesores, totalVehiculos, totalCitas, i);
+		pedirCita(*totalClientes, totalProfesores, totalVehiculos, totalCitas, i);
 		break;
 	case'2': // printf("pasa2\n");
+		if(seguro()==1){
+			eliminarCliente(totalClientes, totalCitas, i);
+
+
+		}else{
+			printf("Opcion cancelada\n");
+		}
 	break;
 	}
-
 	}while(opc!='3');
 }

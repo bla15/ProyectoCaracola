@@ -17,7 +17,7 @@ void verProfesor(Profesor * profesores, int totalProfesores){
 		printf("El profesor %d\n",i+1);
 				printf("Se llama: %s\n",profesores[i].nombre);
 				printf("DNI: %d \n", profesores[i].dni);
-				printf("Contraseña: %s \n", profesores[i].clave);
+				//printf("Contraseña: %s \n", profesores[i].clave);
 				printf("\n");
 	}
 }

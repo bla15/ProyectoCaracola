@@ -27,6 +27,14 @@ void registroClientes(Cliente * clientes, int totalClientes){
 	strcpy(clientes[totalClientes-1].nombre, tempStr);
 	// printf("%s", clientes[totalClientes-1].nombre);
 
+	printf("Introduce tu apellido:\n");
+	fgets(strNom,20,stdin);
+	sscanf(strNom, "%s", tempStr);
+	clear_if_needed(strNom);
+	clientes[totalClientes-1].apellido = (char *) malloc (sizeof(char) * strlen(tempStr + 1));
+	strcpy(clientes[totalClientes-1].apellido, tempStr);
+	// printf("%s", clientes[totalClientes-1].nombre);
+
 
 	printf("Introduce tu DNI (solo numeros):\n");
 	fgets(strNom,9,stdin);

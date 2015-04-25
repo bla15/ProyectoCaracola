@@ -16,7 +16,7 @@ void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int *
 	sscanf(str, "%d", &dni);
 	clear_if_needed(str);
 
-	printf("Introduce la matricula del vehiculo para la cita");
+	printf("Introduce la matricula del vehiculo para la cita: ");
 	fgets(str, 5, stdin);
 	sscanf(str, "%d", &matricula);
 	clear_if_needed(str);
