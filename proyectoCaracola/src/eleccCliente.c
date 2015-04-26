@@ -4,6 +4,7 @@
 void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){
 	verProfesor(profesores, totalProfesores);
 	verVehiculo(vehiculos, totalVehiculos);
+	verCitas(citas, *totalCitas);
 
 
 	char str[20];
@@ -33,6 +34,8 @@ void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int *
 		}
 		else{
 			if(compDniCita(dni, *totalCitas) && compMatrCita(matricula, *totalCitas)){ // Los datos introducidos estan libres
+				printf("DNI en cita: %d\n", compDniCita(dni, *totalCitas));
+
 				citas[*totalCitas].dniProf = dni;
 				citas[*totalCitas].dniCl = clientes[i].dni;
 				citas[*totalCitas].matricula = matricula;
@@ -97,7 +100,7 @@ int compDniCita(int dni, int totalCitas){
 	int bool = 0;
 
 	for(i = 0; i < totalCitas; i++){
-		if(citas[i].dniCl == dni){
+		if(citas[i].dniProf == dni){
 			bool++;
 		}
 	}
