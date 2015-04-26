@@ -87,6 +87,7 @@ void  opcionesCliente(int * totalClientes, int totalProfesores, int totalVehicul
 			eliminarCliente(totalClientes, totalCitas, i);
 
 
+
 		}else{
 			printf("Opcion cancelada\n");
 		}

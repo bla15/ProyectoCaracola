@@ -28,7 +28,7 @@ int main(void) {
 	// Cambiar esto cuando quitemos el primer cliente y profesor. Los dos a 0
 	int totalClientes = 1;
 	int totalProfesores = 1;
-	int totalCitas = 0;
+	int totalCitas = 1;
 
 
 	clientes = (Cliente *) malloc (sizeof(Cliente) * MAX_LENGTH_ACL);
@@ -45,6 +45,10 @@ int main(void) {
 	clientes[0].clave = "1";
 	clientes[0].telefono = 1;
 
+	//creo mi cita
+	citas[0].dniCl=1;
+	citas[0].dniProf=2;
+	citas[0].matricula=0371;
 
 	// Esto no lo podemos hacer
 
