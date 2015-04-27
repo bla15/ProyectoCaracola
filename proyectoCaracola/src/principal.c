@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "nodo.h"
 
-void enunciado(){
+void enunciado(){ // Enunciado del menu principal
 	printf("\n");
 	printf("1: Registrarse\n");
 	printf("2: Listar\n");
@@ -11,7 +11,7 @@ void enunciado(){
 
 }
 
-char opcion(){
+char opcion(){ // Funcion que usamos para leer la opcion que ha seleccionado el usuario
 	char src;
 	printf("Elige un numero de las opciones:\n");
 	fflush(stdout);

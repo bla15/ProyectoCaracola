@@ -1,10 +1,11 @@
 /*
  ============================================================================
  Name        : proyectoCaracola.c
+
  Author      :
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : Fichero principal: main del proyecto
  ============================================================================
  */
 
@@ -13,7 +14,7 @@
 #include <string.h>
 #include "nodo.h"
 
-
+// Definicion de la longitud maxima de los arrays de profesor, ciente, vehiculo y citas
 #define MAX_LENGTH_APROF 5
 #define MAX_LENGTH_ACL 10
 #define MAX_LENGTH_ACH 10
@@ -25,19 +26,19 @@ int main(void) {
 	setvbuf(stdout, 0, _IONBF, 0);
 
 	char camino=0;
-	// Cambiar esto cuando quitemos el primer cliente y profesor. Los dos a 0
+	// Declaracion de las variables que iran controlando cuantos clientes, profesores o citas se han registrado.
 	int totalClientes = 0;
 	int totalProfesores = 0;
 	int totalCitas = 0;
 
-
+	// Reservamos el espacio de memoria para los 4 arrays
 	clientes = (Cliente *) malloc (sizeof(Cliente) * MAX_LENGTH_ACL);
 	profesores = (Profesor *) malloc (sizeof(Profesor) * MAX_LENGTH_APROF);
 	vehiculos = (Vehiculo *) malloc (sizeof(Vehiculo) * MAX_LENGTH_ACH);
 	citas = (Cita *) malloc (sizeof(Cita) * MAX_LENGTH_ACIT);
 
 
-	inicializarCoche(vehiculos);
+	inicializarCoche(vehiculos); // Llamada para inicializar los vehiculos por defecto
 
 
 	do{
@@ -47,29 +48,29 @@ int main(void) {
 
 		camino=opcion();
 
-		if(camino=='1'){
+		if(camino=='1'){ // Opcion 1: Registro
 
 			printf("1: Registrar como Cliente\n2: Registrar como Profesor\n");
 			char opc = opcion();
 
-			if(opc == '1'){
+			if(opc == '1'){ // Registro como cliente
 
-				if(totalClientes< MAX_LENGTH_ACL){
+				if(totalClientes< MAX_LENGTH_ACL){ // No se ha llegado al limite
 					enunciadoCliente();
 					totalClientes++;
 					registroClientes(clientes, totalClientes);
-				}else{
+				}else{ // Se ha llegado al limite
 					printf("Has llenado el limite de clientes\n");
 				}
 
 			}
-			else if(opc == '2'){
-				if(totalProfesores < MAX_LENGTH_APROF){
+			else if(opc == '2'){ // Registro como profesor
+				if(totalProfesores < MAX_LENGTH_APROF){ // No se ha llegado al limite
 					totalProfesores++;
 					registroProfesores(profesores, totalProfesores);
 
 				}
-				else{
+				else{ // Se ha llegado al limite
 					printf("Has llenado el limite de profesores\n");
 				}
 			}
@@ -78,7 +79,7 @@ int main(void) {
 
 		}
 
-		else if(camino=='2'){
+		else if(camino=='2'){ // Opcion 2: Listar
 			char opc;
 
 			do{
@@ -87,7 +88,7 @@ int main(void) {
 				printf("Que quieres listar?\n1: Cliente\n2: Profesor\n3: Vehiculo\n4: Citas\n5: Salir\n");
 				opc= opcion();
 				switch(opc){
-				case '1':
+				case '1': // Listar clientes
 					if(totalClientes == 0){
 						printf("No se ha registrado ningun cliente todavía\n");
 						printf("\n");
@@ -97,7 +98,7 @@ int main(void) {
 						verCliente(clientes, totalClientes);
 					}
 					break;
-				case '2':
+				case '2': // Listar profesores
 					if(totalProfesores==0){
 						printf("No se ha registrado ningun profesor todavía\n");
 						printf("\n");
@@ -106,10 +107,10 @@ int main(void) {
 						printf("TOTAL PROFESORES: %d\n", totalProfesores);
 						verProfesor(profesores, totalProfesores);
 					}break;
-				case '3':
+				case '3': // Listar vehiculos
 					printf("TOTAL VEHICULOS: 10\n");
 					verVehiculo(vehiculos, MAX_LENGTH_ACH);break;
-				case '4':
+				case '4': // Listar citas
 					if(totalCitas == 0){
 						printf("No se ha reservado ninguna cita todavia\n\n");
 					}
@@ -120,34 +121,30 @@ int main(void) {
 				}
 			}while(opc!='5');
 		}
-		else if(camino == '3'){
-			// Acceder
+		else if(camino == '3'){ // Opcion 3: Acceder
+
 			if(totalClientes+totalProfesores==0){
 				printf("No hay ningun dato registrado\n");
 			}else{
 				int dni = enunciadoAcceder();
-				// Caso del cliente
+				// Comprobacion si el dni insertado pertenece a cliente, profesor o es incorrecto
 				comprobarCP(&totalClientes, totalProfesores, MAX_LENGTH_ACH, &totalCitas, dni);
-				// Cambiarlo, ponerlo todo en el main
 
 			}
 
 		}
 
-	}while(camino!='4');
+	}while(camino!='4'); // Opcion 4: Salir
 	printf("Agur/Adios");
 
 
 }
 
-void inicializarCoche(Vehiculo * vehiculos){
+void inicializarCoche(Vehiculo * vehiculos){ // Inicializacion de los vehiculos con valoes predeterminados
 
 	vehiculos[0].matricula = 1822;
 	crearVehiculo(vehiculos, 0, "camion", "rojo");
 
-
-	// Esto en si no se puede hacer, ya que el literal desaparece al cabo del tiempo. Ademas no esta hecho el malloc
-	// Meter valores por strcpy. Hacer una funcion (crear o asi) y meter el tipo y color literales
 
 	vehiculos[1].matricula = 2435;
 	crearVehiculo(vehiculos, 1, "coche", "verde");
@@ -185,13 +182,9 @@ void inicializarCoche(Vehiculo * vehiculos){
 	crearVehiculo(vehiculos, 9, "coche", "azul marino");
 
 
-	// PARA BORRAR ARRAYS: CREAR OTRO ARRAY DE UNA POSICION MENOS Y DESTRUIR EL ANTERIOR. MARCAR COMO NO EN USO (DNI = 0);
-	// FUNCION REALLOC: COPIA LA MEMORIA DE UN ARRAY A OTRO SITIO. CPLUSPLUS.COM
-
-
 }
 
-void crearVehiculo(Vehiculo * vehiculos, int index, char tipo[], char color[]){
+void crearVehiculo(Vehiculo * vehiculos, int index, char tipo[], char color[]){ // Creacion de vehiculos
 	char aTipo[20];
 	char aColor[20];
 	int i;
