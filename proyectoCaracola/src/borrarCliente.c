@@ -5,7 +5,7 @@
 
 #define MAX_LENGTH_ACL 10
 
-int seguro(){
+int seguro(){//metodo que pregunta al usuario si esta dispuesto a borrar su persona de la base de datos
 	char str[10];
 	int num;
 	printf("Vas a elminarte de nuestra base de datos, pulsa '1' si es correcto\n");
@@ -15,7 +15,7 @@ int seguro(){
 	return num;
 }
 
-void eliminarCliente(int *totalClientes, int * totalCitas, int i){
+void eliminarCliente(int *totalClientes, int * totalCitas, int i){//metodo que elimina al cliente
 	int z;
 	int q;
 
@@ -56,50 +56,50 @@ void eliminarCliente(int *totalClientes, int * totalCitas, int i){
 		}
 
 	}else{//si solo hay una cita en el array entra
-			if(clientes[i].dni==citas[0].dniCl){//comprobamos si la cita guardada es de nuestro cliente
-				//tempCitas->dniCl=citas[0].dniCl;
-				//tempCitas->dniProf=citas[0].dniProf;
-				//tempCitas->matricula=citas[0].matricula;
+		if(clientes[i].dni==citas[0].dniCl){//comprobamos si la cita guardada es de nuestro cliente
+			//tempCitas->dniCl=citas[0].dniCl;
+			//tempCitas->dniProf=citas[0].dniProf;
+			//tempCitas->matricula=citas[0].matricula;
 
-				citas[0].dniCl=NULL;
-				citas[0].dniProf=NULL;
-				citas[0].matricula=NULL;
-				(*totalCitas)--;
-			}
+			citas[0].dniCl=NULL;
+			citas[0].dniProf=NULL;
+			citas[0].matricula=NULL;
+			(*totalCitas)--;
+		}
 
 	}
-
+	//ahora se borra el cliente en cuestion ya que no hay ninguna cita asociada a el
 
 	if(*totalClientes>1){//si hay mas de un cliente
 
 
 		for(z=i+1;z< *totalClientes;z++){//for que corre la lista de los clientes
-				//liberamos ese cliente
-				free(clientes[z-1].nombre);
-				free(clientes[z-1].apellido);
-				free(clientes[z-1].clave);
-				clientes[z-1].dni= NULL;
-				clientes[z-1].telefono= NULL;
+			//liberamos ese cliente
+			free(clientes[z-1].nombre);
+			free(clientes[z-1].apellido);
+			free(clientes[z-1].clave);
+			clientes[z-1].dni= NULL;
+			clientes[z-1].telefono= NULL;
 
-				clientes[z-1].nombre= (char *) malloc(sizeof(clientes[z].nombre));
-				clientes[z-1].apellido= (char *) malloc(sizeof(clientes[z].apellido));
-				clientes[z-1].clave= (char *) malloc(sizeof(clientes[z].clave));
+			clientes[z-1].nombre= (char *) malloc(sizeof(clientes[z].nombre));
+			clientes[z-1].apellido= (char *) malloc(sizeof(clientes[z].apellido));
+			clientes[z-1].clave= (char *) malloc(sizeof(clientes[z].clave));
 
-				strcpy(clientes[z-1].nombre,clientes[z].nombre);
-				strcpy(clientes[z-1].apellido,clientes[z].apellido);
-				strcpy(clientes[z-1].clave,clientes[z].clave);
-				clientes[z-1].dni=clientes[z].dni;
-				clientes[z-1].telefono=clientes[z].telefono;
-			}
-			//liberamos la memoria del ultimo elemento
-			free(clientes[*totalClientes-1].nombre);
-			free(clientes[*totalClientes-1].apellido);
-			free(clientes[*totalClientes-1].clave);
+			strcpy(clientes[z-1].nombre,clientes[z].nombre);
+			strcpy(clientes[z-1].apellido,clientes[z].apellido);
+			strcpy(clientes[z-1].clave,clientes[z].clave);
+			clientes[z-1].dni=clientes[z].dni;
+			clientes[z-1].telefono=clientes[z].telefono;
+		}
+		//liberamos la memoria del ultimo elemento
+		free(clientes[*totalClientes-1].nombre);
+		free(clientes[*totalClientes-1].apellido);
+		free(clientes[*totalClientes-1].clave);
 
-			clientes[*totalClientes-1].dni= NULL;
-			clientes[*totalClientes-1].telefono= NULL;
-			//reducimos el numero de clientes en uno
-			(* totalClientes)--;
+		clientes[*totalClientes-1].dni= NULL;
+		clientes[*totalClientes-1].telefono= NULL;
+		//reducimos el numero de clientes en uno
+		(* totalClientes)--;
 
 	}else{
 

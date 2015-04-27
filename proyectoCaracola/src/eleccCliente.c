@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "nodo.h"
 
-void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){
+void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){//metodo para reservar citas
 
 	verProfesor(profesores, totalProfesores);
 	verVehiculo(vehiculos, totalVehiculos);
@@ -13,12 +13,12 @@ void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int *
 	int matricula;
 
 
-	printf("Introduce el DNI del profesor para la cita: ");
+	printf("Introduce el DNI del profesor para la cita: ");//pide que metamos el dni de un profesor
 	fgets(str, 9, stdin);
 	sscanf(str, "%d", &dni);
 	clear_if_needed(str);
 
-	printf("Introduce la matricula del vehiculo para la cita: ");
+	printf("Introduce la matricula del vehiculo para la cita: ");//pide la matricula de un coche
 	fgets(str, 5, stdin);
 	sscanf(str, "%d", &matricula);
 	clear_if_needed(str);
@@ -57,7 +57,7 @@ void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int *
 }
 
 
-int compDniProf(int dni, int totalProfesores){
+int compDniProf(int dni, int totalProfesores){//metodo que comprueba si el dni del profesor es valido y devuelve un int
 
 	int i;
 	int bool = 0; // false
@@ -77,7 +77,7 @@ int compDniProf(int dni, int totalProfesores){
 	}
 }
 
-int compMatr(int matricula, int totalVehiculos){
+int compMatr(int matricula, int totalVehiculos){//para compobar si la matricula es valida
 	int i;
 	int bool = 0;
 
@@ -95,7 +95,7 @@ int compMatr(int matricula, int totalVehiculos){
 	}
 }
 
-int compDniCita(int dni, int totalCitas){
+int compDniCita(int dni, int totalCitas){//comprueba el dni de la cita y devuelve un int
 
 	int i;
 	int bool = 0;
@@ -115,7 +115,7 @@ int compDniCita(int dni, int totalCitas){
 
 }
 
-int compMatrCita(int matricula, int totalCitas){
+int compMatrCita(int matricula, int totalCitas){//comprueba la matricula de la cita con lass demas matriculas de las citas
 
 	int i;
 	int bool = 0;
