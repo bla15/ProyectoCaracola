@@ -26,9 +26,9 @@ int main(void) {
 
 	char camino=0;
 	// Cambiar esto cuando quitemos el primer cliente y profesor. Los dos a 0
-	int totalClientes = 1;
-	int totalProfesores = 1;
-	int totalCitas = 1;
+	int totalClientes = 0;
+	int totalProfesores = 0;
+	int totalCitas = 0;
 
 
 	clientes = (Cliente *) malloc (sizeof(Cliente) * MAX_LENGTH_ACL);
@@ -38,28 +38,7 @@ int main(void) {
 
 
 	inicializarCoche(vehiculos);
-	// Inicializacion para hacer pruebas mas rapidamente
-	clientes[0].dni = 1;
-	clientes[0].nombre = "Borja";
-	clientes[0].apellido = "Lopez";
-	clientes[0].clave = "1";
-	clientes[0].telefono = 1;
 
-	//creo mi cita
-	citas[0].dniCl=1;
-	citas[0].dniProf=2;
-	citas[0].matricula=0371;
-
-	// Esto no lo podemos hacer
-
-	profesores[0].dni = 2;
-	profesores[0].nombre = "Mireia";
-	profesores[0].apellido = "Igartua";
-	profesores[0].clave = "Imaz";
-	profesores[0].telefono = 1;
-	profesores[0].exp = 5;
-
-	// Lo que podemos hacer: Listar (clientes, profesores, coches) ; Borrar ;
 
 	do{
 		printf("\n");
@@ -105,7 +84,7 @@ int main(void) {
 			do{
 
 
-				printf("Que quieres listar?\n1: Cliente\n2: Profesor\n3: Vehiculo\n4: Salir\n");
+				printf("Que quieres listar?\n1: Cliente\n2: Profesor\n3: Vehiculo\n4: Citas\n5: Salir\n");
 				opc= opcion();
 				switch(opc){
 				case '1':
@@ -124,12 +103,22 @@ int main(void) {
 						printf("\n");
 					}
 					else{
+						printf("TOTAL PROFESORES: %d\n", totalProfesores);
 						verProfesor(profesores, totalProfesores);
 					}break;
 				case '3':
+					printf("TOTAL VEHICULOS: 10\n");
 					verVehiculo(vehiculos, MAX_LENGTH_ACH);break;
+				case '4':
+					if(totalCitas == 0){
+						printf("No se ha reservado ninguna cita todavia\n\n");
+					}
+					else{
+						printf("TOTAL CITAS: %d\n", totalCitas);
+						verCitas(citas, totalCitas);
+					}
 				}
-			}while(opc!='4');
+			}while(opc!='5');
 		}
 		else if(camino == '3'){
 			// Acceder

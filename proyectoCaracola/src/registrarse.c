@@ -23,7 +23,7 @@ void registroClientes(Cliente * clientes, int totalClientes){
 	fgets(strNom,20,stdin);
 	sscanf(strNom, "%s", tempStr);
 	clear_if_needed(strNom);
-	clientes[totalClientes-1].nombre = (char *) malloc (sizeof(char) * strlen(tempStr + 1));
+	clientes[totalClientes-1].nombre = (char *) malloc (sizeof(char) * (strlen(tempStr) + 1));
 	strcpy(clientes[totalClientes-1].nombre, tempStr);
 	// printf("%s", clientes[totalClientes-1].nombre);
 
@@ -31,7 +31,7 @@ void registroClientes(Cliente * clientes, int totalClientes){
 	fgets(strNom,20,stdin);
 	sscanf(strNom, "%s", tempStr);
 	clear_if_needed(strNom);
-	clientes[totalClientes-1].apellido = (char *) malloc (sizeof(char) * strlen(tempStr + 1));
+	clientes[totalClientes-1].apellido = (char *) malloc (sizeof(char) * (strlen(tempStr) + 1));
 	strcpy(clientes[totalClientes-1].apellido, tempStr);
 	// printf("%s", clientes[totalClientes-1].nombre);
 
@@ -47,7 +47,7 @@ void registroClientes(Cliente * clientes, int totalClientes){
 	fgets(strNom,20,stdin);
 	sscanf(strNom, "%s", tempStr);
 	clear_if_needed(strNom);
-	clientes[totalClientes-1].clave = (char *) malloc (sizeof(char) * strlen(tempStr + 1));
+	clientes[totalClientes-1].clave = (char *) malloc (sizeof(char) * (strlen(tempStr) + 1));
 	strcpy(clientes[totalClientes-1].clave, tempStr);
 	// printf("%s", clientes[totalClientes-1].clave);
 
@@ -70,7 +70,7 @@ void registroProfesores(Profesor * profesores, int totalProfesores){
 	fgets(strNom,20,stdin);
 	sscanf(strNom, "%s", tempStr);
 	clear_if_needed(strNom);
-	profesores[totalProfesores-1].nombre = (char *) malloc (sizeof(char) * strlen(tempStr + 1));
+	profesores[totalProfesores-1].nombre = (char *) malloc (sizeof(char) * (strlen(tempStr) + 1));
 	strcpy(profesores[totalProfesores-1].nombre, tempStr);
 	// printf("%s", clientes[totalClientes-1].nombre);
 
@@ -85,7 +85,7 @@ void registroProfesores(Profesor * profesores, int totalProfesores){
 	fgets(strNom,20,stdin);
 	sscanf(strNom, "%s", tempStr);
 	clear_if_needed(strNom);
-	profesores[totalProfesores-1].clave = (char *) malloc (sizeof(char) * strlen(tempStr + 1));
+	profesores[totalProfesores-1].clave = (char *) malloc (sizeof(char) * (strlen(tempStr) + 1));
 	strcpy(profesores[totalProfesores-1].clave, tempStr);
 	// printf("%s", clientes[totalClientes-1].clave);
 

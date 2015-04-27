@@ -71,7 +71,7 @@ void comprobarCP(int *totalClientes, int totalProfesores, int totalVehiculos, in
 void entrarCliente(int *totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i);
 void entrarProfesores(int totalClientes, int totalProfesores, int * totalCitas, int i);
 void opcionesCliente(int * totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i);
-void opcionesProfesor(int totalClientes, int totalProfesores, int * totalCitas, int i);
+void opcionesProfesor(int totalClientes, int totalProfesores, int totalCitas, int i);
 
 //eleccCliente
 void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i);
@@ -83,6 +83,11 @@ int compMatrCita(int matricula, int totalCitas);
 //borrarCliente
 int seguro();
 void eliminarCliente(int *totalClientes, int * totalCitas, int i);
+
+//eleccProfesor
+void verCitasProfesor(int totalCitas, int i);
+void guardarCitasProfesor(int totalCitas, int i);
+
 
 
 #endif

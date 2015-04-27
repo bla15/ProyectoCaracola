@@ -2,9 +2,10 @@
 #include "nodo.h"
 
 void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){
+
 	verProfesor(profesores, totalProfesores);
 	verVehiculo(vehiculos, totalVehiculos);
-	verCitas(citas, *totalCitas);
+
 
 
 	char str[20];

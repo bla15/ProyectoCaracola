@@ -61,7 +61,9 @@ void entrarProfesores(int totalClientes, int totalProfesores, int * totalCitas, 
 
 	comp = strcmp(profesores[i].clave, temp);
 	if(comp==0){
-		printf("MAQUINAAAAAAAAAAAAAA UEHHHHHHHHHHHHHHHHH!\n");
+		printf("Contraseña CORRECTA\n");
+		opcionesProfesor(totalClientes, totalProfesores, *totalCitas, i);
+
 	}else{
 		printf("Contraseña incorrecta!!\n");
 
@@ -70,10 +72,10 @@ void entrarProfesores(int totalClientes, int totalProfesores, int * totalCitas, 
 
 void  opcionesCliente(int * totalClientes, int totalProfesores, int totalVehiculos, int * totalCitas, int i){
 	char opc;
-	do{
+
 	printf("1: Para pedir cita\n");
 	printf("2: Darse de baja\n");
-	printf("3: Salir\n");
+
 	opc = opcion();
 
 
@@ -93,5 +95,38 @@ void  opcionesCliente(int * totalClientes, int totalProfesores, int totalVehicul
 		}
 	break;
 	}
-	}while(opc!='3');
+
+}
+
+void opcionesProfesor(int totalClientes, int totalProfesores, int totalCitas, int i){
+
+	if(compDniCita(profesores[i].dni, totalCitas) == 0){
+
+		printf("Estas son las citas pendientes que tienes:\n");
+		verCitasProfesor(totalCitas, i);
+
+		printf("Que quires hacer?\n1.Guardar\n2.Salir\n");
+
+			char opc = opcion();
+
+			if (opc == '1'){
+
+
+				guardarCitasProfesor(totalCitas, i);
+			}
+
+	}
+	else{
+		printf("El profesor no tiene ninguna cita reservada");
+	}
+
+
+
+
+
+
+
+
+
+
 }
