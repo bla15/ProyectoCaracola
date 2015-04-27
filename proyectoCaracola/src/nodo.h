@@ -2,7 +2,9 @@
 #define _NODO_H_
 
 
-
+/* Aqui declararemos las estructuras; tanto de cliente, profesor, vehiculo y cita
+ *
+ */
 
 typedef struct{
 	int dni;
@@ -37,6 +39,9 @@ typedef struct{
 
 }Cita;
 
+/* Aqui declaramos los punteros correspondientes a los arrays
+ *
+ */
 Cliente * clientes;
 Profesor * profesores;
 Vehiculo * vehiculos;
@@ -45,25 +50,24 @@ Cita * citas;
 
 //principal
 void enunciado();//listado de las diferentes opciones iniciales
-char opcion();//para introdicir la eleccion
+char opcion();//para introducir la eleccion
 
 // proyectoCaracola
 void inicializarCoche(Vehiculo * coches);
 void crearVehiculo(Vehiculo * vehiculos, int index, char tipo [], char color []);
 
 //registro
-void enunciadoCliente();//listado de las opciones del registro
-void enunciadoProfesor();
-void registroClientes(Cliente * clientes, int totalClientes);//para introducir los datos
-void registroProfesores(Profesor * profesores, int totalProfesores);
-char opcion2Nombre();
+void enunciadoCliente();//listado de las opciones del registro del cliente
+void enunciadoProfesor(); //listado de las opciones del registro del profesor
+void registroClientes(Cliente * clientes, int totalClientes);//para introducir los datos del cliente
+void registroProfesores(Profesor * profesores, int totalProfesores); //para introducir los datos del profesor
 void clear_if_needed(char *str);
 
 //listar
-void verCliente(Cliente * clientes, int totalClientes);
-void verProfesor(Profesor * profesores, int totalProfesores);
-void verVehiculo(Vehiculo * vehiculos, int totalVehiculos);
-void verCitas(Cita * citas, int totalCitas);
+void verCliente(Cliente * clientes, int totalClientes);//listado de todos los clientes
+void verProfesor(Profesor * profesores, int totalProfesores); //listado de todos los profesores
+void verVehiculo(Vehiculo * vehiculos, int totalVehiculos); //listado de todos los vehiculos
+void verCitas(Cita * citas, int totalCitas); //listado de todas las citas
 
 //acceder
 int enunciadoAcceder();

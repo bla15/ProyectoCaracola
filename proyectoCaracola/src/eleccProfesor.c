@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include "nodo.h"
-
+//Comparamos el dni del profesor con el dni del profesor que tienen alguna cita y en caso de que coincidan, se imprime
 void verCitasProfesor(int totalCitas, int i){
 
 	int j;
@@ -20,7 +20,7 @@ void verCitasProfesor(int totalCitas, int i){
 	}
 
 }
-
+//El profesor tiene la opcion de guardar su cita en un fichero
 void guardarCitasProfesor(int totalCitas, int i){
 
 	FILE * f = fopen("citasGuardadas.txt", "w");

@@ -107,9 +107,6 @@ void registroProfesores(Profesor * profesores, int totalProfesores){
 
 }
 
-char opcion2Nombre(){
-
-}
 
 void clear_if_needed(char *str)
 {

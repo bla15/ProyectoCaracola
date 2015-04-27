@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "nodo.h"
 
+//Listamos todos los clientes
 void verCliente(Cliente * clientes, int totalClientes){
 	int i;
 	for(i=0; i<totalClientes; i++){
@@ -11,6 +12,7 @@ void verCliente(Cliente * clientes, int totalClientes){
 		printf("\n");
 	}
 }
+//listamos todos los profesores
 void verProfesor(Profesor * profesores, int totalProfesores){
 	int i;
 	for(i=0; i<totalProfesores; i++){
@@ -21,6 +23,7 @@ void verProfesor(Profesor * profesores, int totalProfesores){
 				printf("\n");
 	}
 }
+//listamos todos los vehiculos
 void verVehiculo(Vehiculo * vehiculos, int totalVehiculos){
 	int i;
 
@@ -30,7 +33,7 @@ void verVehiculo(Vehiculo * vehiculos, int totalVehiculos){
 
 		//Esto da error. Por que? NO SE PUEDE PONER INT I = 0 DENTRO DE UN FOR
 }
-
+//Listamos todas las citas
 void verCitas(Cita * citas, int totalCitas){
 	int i;
 
