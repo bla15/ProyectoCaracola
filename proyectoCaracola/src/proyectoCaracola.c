@@ -135,7 +135,46 @@ int main(void) {
 		}
 
 	}while(camino!='4'); // Opcion 4: Salir
+
+	// Liberamos la memoria
+	// Clientes
+	int i;
+
+	for(i = 0; i < totalClientes; i++){
+
+		free(clientes[i].nombre);
+		free(clientes[i].apellido);
+		free(clientes[i].clave);
+	}
+
+	free(clientes);
+
+	// Profesores
+	for(i = 0; i < totalProfesores; i++){
+
+		free(profesores[i].nombre);
+		free(profesores[i].apellido);
+		free(profesores[i].clave);
+	}
+
+	free(profesores);
+
+	// Vehiculos
+	for(i = 0; i < MAX_LENGTH_ACH; i++){
+
+		free(vehiculos[i].tipo);
+		free(vehiculos[i].color);
+	}
+
+	free(vehiculos);
+
+	// Citas
+
+	free(citas);
+
 	printf("Agur/Adios");
+
+
 
 
 }

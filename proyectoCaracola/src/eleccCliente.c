@@ -25,11 +25,13 @@ void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int *
 
 	if(compDniProf(dni, totalProfesores) && compMatr(matricula, totalVehiculos)){ // Los datos introducidos son correctos
 		if(*totalCitas == 0){ // Primera vez que se pide una cita
-			printf("YESSSSSSSSSSSSSSSSSSSS");
+
 			citas[0].dniProf = dni;
 			citas[0].dniCl = clientes[i].dni;
 			citas[0].matricula = matricula;
 			(*totalCitas)++;
+
+			printf("Cita reservada.\n");
 
 
 		}
@@ -41,6 +43,8 @@ void pedirCita(int totalClientes, int totalProfesores, int totalVehiculos, int *
 				citas[*totalCitas].dniCl = clientes[i].dni;
 				citas[*totalCitas].matricula = matricula;
 				(*totalCitas)++;
+
+				printf("Cita reservada.\n");
 			}
 			else{
 				printf("El profesor y/o vehiculo seleccionado ya esta ocupado.\n\n");
