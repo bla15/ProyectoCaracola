@@ -74,17 +74,12 @@ int main(void) {
 					printf("Has llenado el limite de profesores\n");
 				}
 			}
-
-
-
 		}
 
 		else if(camino=='2'){ // Opcion 2: Listar
 			char opc;
 
 			do{
-
-
 				printf("Que quieres listar?\n1: Cliente\n2: Profesor\n3: Vehiculo\n4: Citas\n5: Salir\n");
 				opc= opcion();
 				switch(opc){
